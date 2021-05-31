@@ -1,0 +1,51 @@
+#include "translator.h"
+
+Translator::Translator() {
+    _comp["0"]   = "0101010";
+    _comp["1"]   = "0111111";
+    _comp["-1"]  = "0111010";
+    _comp["D"]   = "0001100";
+    _comp["A"]   = "0110000";
+    _comp["!D"]  = "0001101";
+    _comp["!A"]  = "0110001";
+    _comp["-D"]  = "0001111";
+    _comp["-A"]  = "0110011";
+    _comp["D+1"] = "0011111";
+    _comp["A+1"] = "0110111";
+    _comp["D-1"] = "0001110";
+    _comp["A-1"] = "0110010";
+    _comp["D+A"] = "0000010";
+    _comp["D-A"] = "0010011";
+    _comp["A-D"] = "0000111";
+    _comp["D&A"] = "0000000";
+    _comp["D|A"] = "0010101";
+    _comp["M"]   = "1110000";
+    _comp["!M"]  = "1110001";
+    _comp["-M"]  = "1110011";
+    _comp["M+1"] = "1110111";
+    _comp["M-1"] = "1110010";
+    _comp["D+M"] = "1000010";
+    _comp["D-M"] = "1010011";
+    _comp["M-D"] = "1000111";
+    _comp["D&M"] = "1000000";
+    _comp["D|M"] = "1010101";
+    _dest[""]    = "000";
+    _dest["M"]   = "001";
+    _dest["D"]   = "010";
+    _dest["MD"]  = "011";
+    _dest["A"]   = "100";
+    _dest["AM"]  = "101";
+    _dest["AD"]  = "110";
+    _dest["AMD"] = "111";
+    _jump[""]    = "000";
+    _jump["JGT"] = "001";
+    _jump["JEQ"] = "010";
+    _jump["JGE"] = "011";
+    _jump["JLT"] = "100";
+    _jump["JNE"] = "101";
+    _jump["JLE"] = "110";
+    _jump["JMP"] = "111";
+}
+string Translator::comp(string mnemonic) { if(_comp.find(mnemonic) != _comp.end()) return _comp[mnemonic]; }
+string Translator::dest(string mnemonic) { if(_dest.find(mnemonic) != _dest.end()) return _dest[mnemonic]; }
+string Translator::jump(string mnemonic) { if(_jump.find(mnemonic) != _jump.end()) return _jump[mnemonic]; }
